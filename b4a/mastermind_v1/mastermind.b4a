@@ -1,0 +1,259 @@
+﻿Build1=Default,b4a.example
+Build2=mastermind_hb,b4a.mastermind.hb
+File1=Commencer.bal
+FileGroup1=Default Group
+Group=Default Group
+Library1=core
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="19"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~
+Module1=Starter
+NumberOfFiles=1
+NumberOfLibraries=1
+NumberOfModules=1
+Version=10.2
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: MasterMind
+	#VersionCode: 1
+	#VersionName: 
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: portrait
+	#CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: True
+	#IncludeTitle: False
+#End Region
+
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'These variables can be accessed from all modules.
+End Sub
+
+Sub Globals
+	Dim aleatoire1 As Int
+	Dim aleatoire2 As Int
+	Dim aleatoire3 As Int
+	Dim aleatoire4 As Int
+	Dim compte_couleur1 As Int
+	Dim compte_couleur2 As Int
+	Dim compte_couleur3 As Int
+	Dim compte_couleur4 As Int
+	Dim envoie_couleur1 As Int
+	Dim envoie_couleur2 As Int
+	Dim envoie_couleur3 As Int
+	Dim envoie_couleur4 As Int
+	Dim Bonne_place1 As Int
+	Dim Bonne_place2 As Int
+	Dim Bonne_place3 As Int
+	Dim Bonne_place4 As Int
+	Private couleur_aleatoire1 As Label
+	Private couleur_aleatoire2 As Label
+	Private couleur_aleatoire3 As Label
+	Private couleur_aleatoire4 As Label
+	Private choix_couleur1 As Button
+	Private Fond As Label
+	Private Notice_pion As Label
+	Private Debug As Button
+	Private Commencer As Button
+	Private couleur1 As Label
+	Private Envoyer As Button
+	Private Resultat As Label
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	'Do not forget to load the layout file created with the visual designer. For example:
+	Activity.LoadLayout("Commencer")
+	compte_couleur1=0
+	compte_couleur2=0
+	compte_couleur3=0
+	compte_couleur4=0
+	envoie_couleur1=0
+	envoie_couleur2=0
+	envoie_couleur3=0
+	envoie_couleur4=0
+End Sub
+
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
+
+Sub Commencer_Click
+	aleatoire1=Rnd(1,5)
+	aleatoire2=Rnd(1,5)
+	aleatoire3=Rnd(1,5)
+	aleatoire4=Rnd(1,5)
+	Resultat.Color=Colors.Black
+	Resultat.TextColor=Colors.White
+	Resultat.Text="Choisir les couleurs : Rouge, Bleu, Verte et Jaune"
+End Sub
+
+Sub choix_couleur1_Click 
+	'Choix de la couleur par tapotage sur l'écran (Label : couleur1 )
+	compte_couleur1=compte_couleur1+1
+	If compte_couleur1=1 Then
+		'Couleur fond : Rouge
+		'code ici
+		envoie_couleur1=1
+	End If
+	If compte_couleur1=2 Then
+		'Couleur fond Bleu
+		'code ici
+		envoie_couleur1=2
+	End If
+	If compte_couleur1=3 Then
+		'Couleur fond Jaune
+		'code ici
+		envoie_couleur1=3
+	End If
+	If compte_couleur1=4 Then
+		'Couleur fond Verte
+		'code ici
+		compte_couleur1=0
+		envoie_couleur1=4
+	End If	
+End Sub
+
+'Mettre le code pour les boutons des couleurs 2, 3 et 4
+
+Sub Envoyer_Click
+	If envoie_couleur1=1 Then
+		'afficher la premiere couleur envoyer correspondant au Rouge
+		'Label : afficher_couleur1
+		'Couleur fond : Rouge
+		'code ici
+	End If
+	If envoie_couleur1=2 Then
+		'afficher la premiere couleur envoyer correspondant au Bleu
+		'Label : afficher_couleur1
+		'Couleur fond : Bleu
+		'code ici
+	End If
+	If envoie_couleur1=3 Then
+		'afficher la premiere couleur envoyer correspondant au Jaune
+		'Label : afficher_couleur1
+		'Couleur fond : Jaune
+		'code ici
+	End If
+	If envoie_couleur1=4 Then
+		'afficher la premiere couleur envoyer correspondant au Vert
+		'Label : afficher_couleur1
+		'Couleur fond : Vert
+		'code ici
+	End If
+	
+	'Mettre le code pour les couleurs 2, 3 et 4
+	comparaison
+End Sub
+
+Sub comparaison 'compare la couleur envoyer au code secret aléatoire en indicant par un cles noir sont bonne emplacement
+	
+	If envoie_couleur1=aleatoire1 Then
+		Bonne_place1=1
+		'completer le code suivant avec la bonne suite d'instruction
+		'Label : pion1
+		' Fond Couleur : Noir
+		'code ici
+	Else If envoie_couleur1=aleatoire2 Or envoie_couleur1=aleatoire3 Or envoie_couleur1=aleatoire4  Then
+		Bonne_place1=0
+		'completer le code suivant avec la bonne suite d'instruction
+		'Label : pion1
+		' Fond Couleur : Blanc
+		'code ici
+	Else
+		Bonne_place1=0
+		'completer le code suivant avec la bonne suite d'instruction
+		'Label : pion1
+		' Fond Couleur : Transparent
+		'code ici		
+	End If
+	
+	'Mettre le code pour les couleurs 2, 3 et 4
+	
+			
+	If Bonne_place1=1 And Bonne_place2=1 And Bonne_place3=1 And Bonne_place4=1 Then
+		'affichage d'un message d'un message de fin de partie lorsque l'utilisateur à trouver la bonne combinaison
+		'Couleur fond : Blanc ;  Texte en Noir : "Bravo tu as gagné ! "
+		'Label : Resultat
+		'code ici
+		'code ici
+		'code ici
+	Else
+		Resultat.Text=""
+	End If
+	
+End Sub
+
+Sub Debug_Click
+	If aleatoire1=1 Then
+		couleur_aleatoire1.Color=Colors.Red
+		couleur_aleatoire1.Text=aleatoire1
+	End If
+	If aleatoire1=2 Then
+		couleur_aleatoire1.Color=Colors.Blue
+		couleur_aleatoire1.Text=aleatoire1
+	End If
+	If aleatoire1=3 Then
+		couleur_aleatoire1.Color=Colors.Yellow
+		couleur_aleatoire1.Text=aleatoire1
+	End If
+	If aleatoire1=4 Then
+		couleur_aleatoire1.Color=Colors.Green
+		couleur_aleatoire1.Text=aleatoire1
+	End If
+	
+	If aleatoire2=1 Then
+		couleur_aleatoire2.Color=Colors.Red
+		couleur_aleatoire2.Text=aleatoire2
+	End If
+	If aleatoire2=2 Then
+		couleur_aleatoire2.Color=Colors.Blue
+		couleur_aleatoire2.Text=aleatoire2
+	End If
+	If aleatoire2=3 Then
+		couleur_aleatoire2.Color=Colors.Yellow
+		couleur_aleatoire2.Text=aleatoire2
+	End If
+	If aleatoire2=4 Then
+		couleur_aleatoire2.Color=Colors.Green
+		couleur_aleatoire2.Text=aleatoire2
+	End If
+	
+	If aleatoire3=1 Then
+		couleur_aleatoire3.Color=Colors.Red
+		couleur_aleatoire3.Text=aleatoire3
+	End If
+	If aleatoire3=2 Then
+		couleur_aleatoire3.Color=Colors.Blue
+		couleur_aleatoire3.Text=aleatoire3
+	End If
+	If aleatoire3=3 Then
+		couleur_aleatoire3.Color=Colors.Yellow
+		couleur_aleatoire3.Text=aleatoire3
+	End If
+	If aleatoire3=4 Then
+		couleur_aleatoire3.Color=Colors.Green
+		couleur_aleatoire3.Text=aleatoire3
+	End If
+	
+	If aleatoire4=1 Then
+		couleur_aleatoire4.Color=Colors.Red
+		couleur_aleatoire4.Text=aleatoire4
+	End If
+	If aleatoire4=2 Then
+		couleur_aleatoire4.Color=Colors.Blue
+		couleur_aleatoire4.Text=aleatoire4
+	End If
+	If aleatoire4=3 Then
+		couleur_aleatoire4.Color=Colors.Yellow
+		couleur_aleatoire4.Text=aleatoire4
+	End If
+	If aleatoire4=4 Then
+		couleur_aleatoire4.Color=Colors.Green
+		couleur_aleatoire4.Text=aleatoire4
+	End If
+End Sub

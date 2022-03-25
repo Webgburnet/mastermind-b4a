@@ -1,0 +1,452 @@
+﻿Build1=Default,b4a.mastermind_std2a
+Build2=mastermind2,b4a.mastermind2
+File1=debug_5_02.bal
+File2=Jeu_5_02.bal
+File3=menu_5_02.bal
+File4=Regles_5_02.bal
+FileGroup1=Default Group
+FileGroup2=Default Group
+FileGroup3=Default Group
+FileGroup4=Default Group
+Group=Default Group
+Library1=core
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="14"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~SetApplicationAttribute(android:theme, "@android:style/Theme.Holo")~\n~'End of default text.~\n~
+NumberOfFiles=4
+NumberOfLibraries=1
+NumberOfModules=0
+Version=10.2
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: mastermind std2a
+	#VersionCode: 1
+	#VersionName: 
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: portrait
+	#CanInstallToExternalStorage: True
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: True
+	#IncludeTitle: True
+#End Region
+
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'These variables can be accessed from all modules.
+
+End Sub
+
+Sub Globals
+	'These global variables will be redeclared each time the activity is created.
+	'These variables can only be accessed from this module.
+	'Declaration des variables
+	Dim aleatoire1 As Int
+	Dim aleatoire2 As Int
+	Dim aleatoire3 As Int
+	Dim aleatoire4 As Int
+	Dim compte_couleur1 As Int
+	Dim compte_couleur2 As Int
+	Dim compte_couleur3 As Int
+	Dim compte_couleur4 As Int
+	Dim envoie_couleur1 As Int
+	Dim envoie_couleur2 As Int
+	Dim envoie_couleur3 As Int
+	Dim envoie_couleur4 As Int
+	Dim Bonne_place1 As Int
+	Dim Bonne_place2 As Int
+	Dim Bonne_place3 As Int
+	Dim Bonne_place4 As Int
+	Dim Nombre_tentative As Int
+	Dim Reinit As Int
+	Dim Gagne As Int
+	
+	'Sur tous les Layout
+	Private Fond As Panel
+	Private Quitter_panel As Panel
+	Private Retour_panel As Panel
+	Private Quitter_button As Button
+	Private Retour_button As Button
+	
+	'Layout menu
+	Private Commencer_menu As Button
+	Private Regles_menu As Button
+	Private Debug_menu As Button
+	Private Commencer_menu_panel As Panel
+	Private Debug_menu_panel As Panel
+	Private Regles_menu_panel As Panel
+	
+	'Layout Regles
+	Private Regle_regle_label As Label
+	Private Regles_regle_panel As Panel
+	
+	'Layout Debug et Jeu
+	Private Commencer As Button
+	Private Debug As Button
+	Private Envoyer As Button
+	Private choix_couleur1 As Button
+	Private afficher_couleur1 As Label
+	Private Solution As Label
+	Private couleur_aleatoire1 As Label
+	Private couleur_aleatoire2 As Label
+	Private couleur_aleatoire3 As Label
+	Private couleur_aleatoire4 As Label
+	Private couleur1 As Label
+	Private pion1 As Label
+	Private Notice_pion As Label
+	Private Resultat As Label
+	Private Debug_panel As Panel
+	Private Envoi_panel As Panel
+	Private start_panel As Panel
+	Private Resultas_panel As Panel
+	Private affiche_resulat_panel As Panel
+	Private affiche_solution_panel As Panel
+	
+
+
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	'Do not forget to load the layout file created with the visual designer. For example:
+	Activity.LoadLayout("menu_5_02")
+	compte_couleur1=0
+	compte_couleur2=0
+	compte_couleur3=0
+	compte_couleur4=0
+	envoie_couleur1=0
+	envoie_couleur2=0
+	envoie_couleur3=0
+	envoie_couleur4=0
+End Sub
+
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
+
+Sub Regles_menu_Click
+	Activity.RemoveAllViews
+	Activity.LoadLayout("regles_5_02")
+End Sub
+
+Sub Debug_menu_Click
+	Activity.RemoveAllViews
+	Activity.LoadLayout("debug_5_02")
+	Jeu
+End Sub
+
+Sub Commencer_menu_Click
+	Activity.RemoveAllViews
+	Activity.LoadLayout("debug_5_02")
+	Jeu
+End Sub
+
+Sub Jeu
+	aleatoire1=1
+	aleatoire2=2
+	aleatoire3=3
+	aleatoire4=4
+	Nombre_tentative=12
+	Reinit=0
+	Envoi_panel.Visible=False
+End Sub
+
+Sub Retour_button_Click
+	Activity.RemoveAllViews
+	Activity.LoadLayout("menu_5_02")
+End Sub
+
+Sub Commencer_Click
+	aleatoire1=Rnd(1,7)
+	aleatoire2=Rnd(1,7)
+	aleatoire3=Rnd(1,7)
+	aleatoire4=Rnd(1,7)
+	Do While aleatoire2=aleatoire1 Or aleatoire2=aleatoire3 Or aleatoire2=aleatoire4 Then
+		aleatoire2=Rnd(1,7)
+	Loop
+	Do While aleatoire3=aleatoire1 Or aleatoire3=aleatoire2 Or aleatoire3=aleatoire4 Then
+		aleatoire3=Rnd(1,7)
+	Loop
+	Do While aleatoire4=aleatoire1 Or aleatoire4=aleatoire2 Or aleatoire4=aleatoire3 Then
+		aleatoire4=Rnd(1,7)
+	Loop
+	Resultat.Text="Choisir les couleurs : Rouge, Bleu, Verte et Jaune"
+	Envoi_panel.Visible=True
+	Reinit=1
+	If Nombre_tentative=0 Or Reinit=1 Then
+		Init
+		affiche_resulat_panel.Visible=False
+		affiche_solution_panel.Visible=False
+	End If
+End Sub
+
+Sub Debug_Click
+	Init
+	Debug_panel.Visible=True
+	affiche_solution_panel.Visible=True
+	Envoi_panel.Visible=True
+	Solution.Text="La solution est :"
+	If Nombre_tentative <=0 Then
+		Nombre_tentative=1
+	End If
+End Sub
+
+Sub Init
+	Debug_fct
+	compte_couleur1=0
+	compte_couleur2=0
+	compte_couleur3=0
+	compte_couleur4=0
+	envoie_couleur1=0
+	envoie_couleur2=0
+	envoie_couleur3=0
+	envoie_couleur4=0
+	'Initiliastion Labels afficher la couleur envoyer
+	'Label : afficher_couleur1
+	'		 afficher_couleur2
+	'		 afficher_couleur3
+	'		 afficher_couleur4
+	'Couleur fond : Transparent
+	'code ici
+	
+	
+	Gagne=0
+	Nombre_tentative=12
+End Sub
+
+Sub Debug_fct
+	If aleatoire1=1 Then
+		couleur_aleatoire1.Color=Colors.Red
+		couleur_aleatoire1.Text=aleatoire1
+	End If
+	If aleatoire1=2 Then
+		couleur_aleatoire1.Color=Colors.Blue
+		couleur_aleatoire1.Text=aleatoire1
+	End If
+	If aleatoire1=3 Then
+		couleur_aleatoire1.Color=Colors.Yellow
+		couleur_aleatoire1.Text=aleatoire1
+	End If
+	If aleatoire1=4 Then
+		couleur_aleatoire1.Color=Colors.Green
+		couleur_aleatoire1.Text=aleatoire1
+	End If
+	If aleatoire1=5 Then
+		couleur_aleatoire1.Color=Colors.Cyan
+		couleur_aleatoire1.Text=aleatoire1
+	End If
+	If aleatoire1=6 Then
+		couleur_aleatoire1.Color=Colors.Magenta
+		couleur_aleatoire1.Text=aleatoire1
+	End If
+	
+	If aleatoire2=1 Then
+		couleur_aleatoire2.Color=Colors.Red
+		couleur_aleatoire2.Text=aleatoire2
+	End If
+	If aleatoire2=2 Then
+		couleur_aleatoire2.Color=Colors.Blue
+		couleur_aleatoire2.Text=aleatoire2
+	End If
+	If aleatoire2=3 Then
+		couleur_aleatoire2.Color=Colors.Yellow
+		couleur_aleatoire2.Text=aleatoire2
+	End If
+	If aleatoire2=4 Then
+		couleur_aleatoire2.Color=Colors.Green
+		couleur_aleatoire2.Text=aleatoire2
+	End If
+	If aleatoire2=5 Then
+		couleur_aleatoire2.Color=Colors.Cyan
+		couleur_aleatoire2.Text=aleatoire2
+	End If
+	If aleatoire1=6 Then
+		couleur_aleatoire2.Color=Colors.Magenta
+		couleur_aleatoire2.Text=aleatoire2
+	End If
+	
+	If aleatoire3=1 Then
+		couleur_aleatoire3.Color=Colors.Red
+		couleur_aleatoire3.Text=aleatoire3
+	End If
+	If aleatoire3=2 Then
+		couleur_aleatoire3.Color=Colors.Blue
+		couleur_aleatoire3.Text=aleatoire3
+	End If
+	If aleatoire3=3 Then
+		couleur_aleatoire3.Color=Colors.Yellow
+		couleur_aleatoire3.Text=aleatoire3
+	End If
+	If aleatoire3=4 Then
+		couleur_aleatoire3.Color=Colors.Green
+		couleur_aleatoire3.Text=aleatoire3
+	End If
+	If aleatoire3=5 Then
+		couleur_aleatoire3.Color=Colors.Cyan
+		couleur_aleatoire3.Text=aleatoire3
+	End If
+	If aleatoire3=6 Then
+		couleur_aleatoire3.Color=Colors.Magenta
+		couleur_aleatoire3.Text=aleatoire3
+	End If
+	
+	If aleatoire4=1 Then
+		couleur_aleatoire4.Color=Colors.Red
+		couleur_aleatoire4.Text=aleatoire4
+	End If
+	If aleatoire4=2 Then
+		couleur_aleatoire4.Color=Colors.Blue
+		couleur_aleatoire4.Text=aleatoire4
+	End If
+	If aleatoire4=3 Then
+		couleur_aleatoire4.Color=Colors.Yellow
+		couleur_aleatoire4.Text=aleatoire4
+	End If
+	If aleatoire4=4 Then
+		couleur_aleatoire4.Color=Colors.Green
+		couleur_aleatoire4.Text=aleatoire4
+	End If
+	If aleatoire4=5 Then
+		couleur_aleatoire4.Color=Colors.Cyan
+		couleur_aleatoire4.Text=aleatoire4
+	End If
+	If aleatoire4=6 Then
+		couleur_aleatoire4.Color=Colors.Magenta
+		couleur_aleatoire4.Text=aleatoire4
+	End If
+End Sub
+Sub choix_couleur1_Click
+	compte_couleur1=compte_couleur1+1
+	If compte_couleur1=1 Then
+		couleur1.Color=Colors.Red
+		envoie_couleur1=1
+	End If
+	If compte_couleur1=2 Then
+		couleur1.Color=Colors.Blue
+		envoie_couleur1=2
+	End If
+	If compte_couleur1=3 Then
+		couleur1.Color=Colors.Yellow
+		envoie_couleur1=3
+	End If
+	If compte_couleur1=4 Then
+		couleur1.Color=Colors.Green
+		envoie_couleur1=4
+	End If
+	If compte_couleur1=5 Then
+		couleur1.Color=Colors.Cyan
+		envoie_couleur1=5
+	End If
+	If compte_couleur1=6 Then
+		couleur1.Color=Colors.Magenta
+		compte_couleur1=0
+		envoie_couleur1=6
+	End If
+			
+End Sub
+
+'Mettre le code pour les boutons des couleurs 2, 3 et 4
+
+Sub Envoyer_Click
+	If envoie_couleur1=1 Then
+		'afficher la premiere couleur envoyer correspondant au Rouge
+		'Label : afficher_couleur1
+		'Couleur fond : Rouge
+		'code ici
+	End If
+	If envoie_couleur1=2 Then
+		'afficher la premiere couleur envoyer correspondant au Bleu
+		'Label : afficher_couleur1
+		'Couleur fond : Bleu
+		'code ici
+	End If
+	If envoie_couleur1=3 Then
+		'afficher la premiere couleur envoyer correspondant au Jaune
+		'Label : afficher_couleur1
+		'Couleur fond : Jaune
+		'code ici
+	End If
+	If envoie_couleur1=4 Then
+		'afficher la premiere couleur envoyer correspondant au Vert
+		'Label : afficher_couleur1
+		'Couleur fond : Vert
+		'code ici
+	End If
+	If envoie_couleur1=5 Then
+		'afficher la premiere couleur envoyer correspondant au Vert
+		'Label : afficher_couleur1
+		'Couleur fond : Cyan
+		'code ici
+	End If
+	If envoie_couleur1=6 Then
+		'afficher la premiere couleur envoyer correspondant au Vert
+		'Label : afficher_couleur1
+		'Couleur fond : Magenta
+		'code ici
+	End If
+	
+	'Mettre le code pour les couleurs 2, 3 et 4
+	
+	comparaison
+End Sub
+
+Sub comparaison
+	If envoie_couleur1=aleatoire1 Then
+		Bonne_place1=1
+		'completer le code suivant avec la bonne suite d'instruction
+		'Label : pion1
+		'Fond Couleur : Noir
+		'code ici
+	Else If envoie_couleur1=aleatoire2 Or envoie_couleur1=aleatoire3 Or envoie_couleur1=aleatoire4 Then
+		Bonne_place1=0
+		'completer le code suivant avec la bonne suite d'instruction
+		'Label : pion1
+		'Fond Couleur : Blanc
+		'code icie
+	Else
+		Bonne_place1=0
+		'completer le code suivant avec la bonne suite d'instruction
+		'Label : pion1
+		'Fond Couleur : Transparent
+		'code ici
+	End If
+	
+	If Bonne_place1=0 Or Bonne_place2=0 Or Bonne_place3=0 Or Bonne_place4=0 Then
+		affiche_resulat_panel.Visible=True
+		affiche_resulat_panel.Visible=True
+		tentative
+		Resultat.Text="Il te reste " & Nombre_tentative & " tentavive pour réussir"
+	End If
+	
+	If Bonne_place1=1 And Bonne_place2=1 And Bonne_place3=1 And Bonne_place4=1 Then
+		Nombre_tentative=12-Nombre_tentative+1
+		Resultat.Text="Bravo tu as gagné ! En "& Nombre_tentative & " coup :D"
+		Envoi_panel.Visible=False
+		affiche_solution_panel.Visible=True
+		affiche_resulat_panel.Visible=True
+		Solution.Text="La solution était bien : "
+		Debug_fct
+		Gagne=1
+	End If
+	
+	If Nombre_tentative=0 And Gagne= 0 Then
+		Resultat.Text="Dommage tu as perdu !:C"
+		Envoi_panel.Visible=False
+		affiche_solution_panel.Visible=True
+		Solution.Text="La solution était : "
+		Debug_fct
+	End If
+	
+End Sub
+
+Sub tentative
+	Nombre_tentative=Nombre_tentative-1
+End Sub
+
+Sub Quitter_button_Click
+	 If Msgbox2("Do you want to close the app?", "Close App","Yes","","No", Null)  = DialogResponse.POSITIVE Then
+      Activity.Finish
+    End If
+End Sub
