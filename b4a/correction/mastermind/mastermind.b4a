@@ -1,6 +1,6 @@
 ﻿Build1=Default,b4a.example
 Build2=mastermind_hb,b4a.mastermind.hb
-File1=Commencer.bal
+File1=C.bal
 FileGroup1=Default Group
 Group=Default Group
 Library1=core
@@ -9,7 +9,7 @@ Module1=Starter
 NumberOfFiles=1
 NumberOfLibraries=1
 NumberOfModules=1
-Version=10.2
+Version=12.5
 @EndOfDesignText@
 #Region  Project Attributes 
 	#ApplicationLabel: MasterMind
@@ -35,40 +35,40 @@ Sub Globals
 	Dim aleatoire2 As Int
 	Dim aleatoire3 As Int
 	Dim aleatoire4 As Int
-	Dim compte_couleur1 As Int
-	Dim compte_couleur2 As Int
-	Dim compte_couleur3 As Int
-	Dim compte_couleur4 As Int
-	Dim envoie_couleur1 As Int
-	Dim envoie_couleur2 As Int
-	Dim envoie_couleur3 As Int
-	Dim envoie_couleur4 As Int
-	Dim Bonne_place1 As Int
-	Dim Bonne_place2 As Int
-	Dim Bonne_place3 As Int
-	Dim Bonne_place4 As Int
-	Private couleur_aleatoire1 As Label
-	Private couleur_aleatoire2 As Label
-	Private couleur_aleatoire3 As Label
-	Private couleur_aleatoire4 As Label
-	Private choix_couleur1 As Button
-	Private choix_couleur2 As Button
-	Private choix_couleur3 As Button
-	Private choix_couleur4 As Button
-	Private couleur1 As Label
-	Private couleur2 As Label
-	Private couleur3 As Label
-	Private couleur4 As Label
-	Private afficher_couleur1 As Label
-	Private afficher_couleur2 As Label
-	Private afficher_couleur3 As Label
-	Private afficher_couleur4 As Label
+	Dim c_c1 As Int
+	Dim c_c2 As Int
+	Dim c_c3 As Int
+	Dim c_c4 As Int
+	Dim e_c1 As Int
+	Dim e_c2 As Int
+	Dim e_c3 As Int
+	Dim e_c4 As Int
+	Dim b_p1 As Int
+	Dim b_p2 As Int
+	Dim b_p3 As Int
+	Dim b_p4 As Int
+	Private c_a1 As Label
+	Private c_a2 As Label
+	Private c_a3 As Label
+	Private c_a4 As Label
+	Private b_c1 As Button
+	Private b_c2 As Button
+	Private b_c3 As Button
+	Private b_c4 As Button
+	Private c1 As Label
+	Private c2 As Label
+	Private c3 As Label
+	Private c4 As Label
+	Private a_c1 As Label
+	Private a_c2 As Label
+	Private a_c3 As Label
+	Private a_c4 As Label
 	Private Fond As Label
 	Private Notice_pion As Label
-	Private pion1 As Label
-	Private pion2 As Label
-	Private pion3 As Label
-	Private pion4 As Label
+	Private p1 As Label
+	Private p2 As Label
+	Private p3 As Label
+	Private p4 As Label
 	Private Resultat As Label
 	Private Debug As Button
 End Sub
@@ -76,15 +76,15 @@ End Sub
 Sub Activity_Create(FirstTime As Boolean)
 	'Do not forget to load the layout file created with the visual designer. For example:
 	'Activity.LoadLayout("Layout1")
-	Activity.LoadLayout("Commencer")
-	compte_couleur1=0
-	compte_couleur2=0
-	compte_couleur3=0
-	compte_couleur4=0
-	envoie_couleur1=0
-	envoie_couleur2=0
-	envoie_couleur3=0
-	envoie_couleur4=0
+	Activity.LoadLayout("C")
+	c_c1=0
+	c_c2=0
+	c_c3=0
+	c_c4=0
+	e_c1=0
+	e_c2=0
+	e_c3=0
+	e_c4=0
 End Sub
 
 Sub Activity_Resume
@@ -95,201 +95,201 @@ Sub Activity_Pause (UserClosed As Boolean)
 
 End Sub
 
-Sub Commencer_Click
+Sub Commence_Click
 	aleatoire1=Rnd(1,5)
 	aleatoire2=Rnd(1,5)
 	aleatoire3=Rnd(1,5)
 	aleatoire4=Rnd(1,5)
 	Resultat.Color=Colors.Black
 	Resultat.TextColor=Colors.White
-	Resultat.Text="Choisir les couleurs : Rouge, Bleu, Verte et Jaune"
+	Resultat.Text="Choisir les cs : Rouge, Bleu, Verte et Jaune"
 End Sub
 
-Sub choix_couleur4_Click
-	compte_couleur4=compte_couleur4+1
-	If compte_couleur4=1 Then
-		couleur4.Color=Colors.Red
-		envoie_couleur4=1
+Sub b_c4_Click
+	c_c4=c_c4+1
+	If c_c4=1 Then
+		c4.Color=Colors.Red
+		e_c4=1
 	End If
-	If compte_couleur4=2 Then
-		couleur4.Color=Colors.Blue
-		envoie_couleur4=2
+	If c_c4=2 Then
+		c4.Color=Colors.Blue
+		e_c4=2
 	End If
-	If compte_couleur4=3 Then
-		couleur4.Color=Colors.Yellow
-		envoie_couleur4=3
+	If c_c4=3 Then
+		c4.Color=Colors.Yellow
+		e_c4=3
 	End If
-	If compte_couleur4=4 Then
-		couleur4.Color=Colors.Green
-		compte_couleur4=0
-		envoie_couleur4=4
-	End If
-End Sub
-
-Sub choix_couleur3_Click
-	compte_couleur3=compte_couleur3+1
-	If compte_couleur3=1 Then
-		couleur3.Color=Colors.Red
-		envoie_couleur3=1
-	End If
-	If compte_couleur3=2 Then
-		couleur3.Color=Colors.Blue
-		envoie_couleur3=2
-	End If
-	If compte_couleur3=3 Then
-		couleur3.Color=Colors.Yellow
-		envoie_couleur3=3
-	End If
-	If compte_couleur3=4 Then
-		couleur3.Color=Colors.Green
-		compte_couleur3=0
-		envoie_couleur3=4
+	If c_c4=4 Then
+		c4.Color=Colors.Green
+		c_c4=0
+		e_c4=4
 	End If
 End Sub
 
-Sub choix_couleur2_Click
-	compte_couleur2=compte_couleur2+1
-	If compte_couleur2=1 Then
-		couleur2.Color=Colors.Red
-		envoie_couleur2=1
+Sub b_c3_Click
+	c_c3=c_c3+1
+	If c_c3=1 Then
+		c3.Color=Colors.Red
+		e_c3=1
 	End If
-	If compte_couleur2=2 Then
-		couleur2.Color=Colors.Blue
-		envoie_couleur2=2
+	If c_c3=2 Then
+		c3.Color=Colors.Blue
+		e_c3=2
 	End If
-	If compte_couleur2=3 Then
-		couleur2.Color=Colors.Yellow
-		envoie_couleur2=3
+	If c_c3=3 Then
+		c3.Color=Colors.Yellow
+		e_c3=3
 	End If
-	If compte_couleur2=4 Then
-		couleur2.Color=Colors.Green
-		compte_couleur2=0
-		envoie_couleur2=4
+	If c_c3=4 Then
+		c3.Color=Colors.Green
+		c_c3=0
+		e_c3=4
 	End If
 End Sub
 
-Sub choix_couleur1_Click
-	compte_couleur1=compte_couleur1+1
-	If compte_couleur1=1 Then
-		couleur1.Color=Colors.Red
-		envoie_couleur1=1
+Sub b_c2_Click
+	c_c2=c_c2+1
+	If c_c2=1 Then
+		c2.Color=Colors.Red
+		e_c2=1
 	End If
-	If compte_couleur1=2 Then
-		couleur1.Color=Colors.Blue
-		envoie_couleur1=2
+	If c_c2=2 Then
+		c2.Color=Colors.Blue
+		e_c2=2
 	End If
-	If compte_couleur1=3 Then
-		couleur1.Color=Colors.Yellow
-		envoie_couleur1=3
+	If c_c2=3 Then
+		c2.Color=Colors.Yellow
+		e_c2=3
 	End If
-	If compte_couleur1=4 Then
-		couleur1.Color=Colors.Green
-		compte_couleur1=0
-		envoie_couleur1=4
+	If c_c2=4 Then
+		c2.Color=Colors.Green
+		c_c2=0
+		e_c2=4
+	End If
+End Sub
+
+Sub b_c1_Click
+	c_c1=c_c1+1
+	If c_c1=1 Then
+		c1.Color=Colors.Red
+		e_c1=1
+	End If
+	If c_c1=2 Then
+		c1.Color=Colors.Blue
+		e_c1=2
+	End If
+	If c_c1=3 Then
+		c1.Color=Colors.Yellow
+		e_c1=3
+	End If
+	If c_c1=4 Then
+		c1.Color=Colors.Green
+		c_c1=0
+		e_c1=4
 	End If	
 End Sub
 
-Sub Envoyer_Click
-	If envoie_couleur1=1 Then
-		afficher_couleur1.Color=Colors.Red
+Sub Envoye_Click
+	If e_c1=1 Then
+		a_c1.Color=Colors.Red
 	End If
-	If envoie_couleur1=2 Then
-		afficher_couleur1.Color=Colors.Blue
+	If e_c1=2 Then
+		a_c1.Color=Colors.Blue
 	End If
-	If envoie_couleur1=3 Then
-		afficher_couleur1.Color=Colors.Yellow
+	If e_c1=3 Then
+		a_c1.Color=Colors.Yellow
 	End If
-	If envoie_couleur1=4 Then
-		afficher_couleur1.Color=Colors.Green
-	End If
-	
-	If envoie_couleur2=1 Then
-		afficher_couleur2.Color=Colors.Red
-	End If
-	If envoie_couleur2=2 Then
-		afficher_couleur2.Color=Colors.Blue
-	End If
-	If envoie_couleur2=3 Then
-		afficher_couleur2.Color=Colors.Yellow
-	End If
-	If envoie_couleur2=4 Then
-		afficher_couleur2.Color=Colors.Green
+	If e_c1=4 Then
+		a_c1.Color=Colors.Green
 	End If
 	
-	If envoie_couleur3=1 Then
-		afficher_couleur3.Color=Colors.Red
+	If e_c2=1 Then
+		a_c2.Color=Colors.Red
 	End If
-	If envoie_couleur3=2 Then
-		afficher_couleur3.Color=Colors.Blue
+	If e_c2=2 Then
+		a_c2.Color=Colors.Blue
 	End If
-	If envoie_couleur3=3 Then
-		afficher_couleur3.Color=Colors.Yellow
+	If e_c2=3 Then
+		a_c2.Color=Colors.Yellow
 	End If
-	If envoie_couleur3=4 Then
-		afficher_couleur3.Color=Colors.Green
+	If e_c2=4 Then
+		a_c2.Color=Colors.Green
 	End If
 	
-	If envoie_couleur4=1 Then
-		afficher_couleur4.Color=Colors.Red
+	If e_c3=1 Then
+		a_c3.Color=Colors.Red
 	End If
-	If envoie_couleur4=2 Then
-		afficher_couleur4.Color=Colors.Blue
+	If e_c3=2 Then
+		a_c3.Color=Colors.Blue
 	End If
-	If envoie_couleur4=3 Then
-		afficher_couleur4.Color=Colors.Yellow
+	If e_c3=3 Then
+		a_c3.Color=Colors.Yellow
 	End If
-	If envoie_couleur4=4 Then
-		afficher_couleur4.Color=Colors.Green
+	If e_c3=4 Then
+		a_c3.Color=Colors.Green
+	End If
+	
+	If e_c4=1 Then
+		a_c4.Color=Colors.Red
+	End If
+	If e_c4=2 Then
+		a_c4.Color=Colors.Blue
+	End If
+	If e_c4=3 Then
+		a_c4.Color=Colors.Yellow
+	End If
+	If e_c4=4 Then
+		a_c4.Color=Colors.Green
 	End If
 	comparaison
 End Sub
 
 Sub comparaison
-	If envoie_couleur1=aleatoire1 Then
-		Bonne_place1=1
-		pion1.Color=Colors.Black
-	Else If envoie_couleur1=aleatoire2 Or envoie_couleur1=aleatoire3 Or envoie_couleur1=aleatoire4 Then
-		Bonne_place1=0
-		pion1.Color=Colors.White
+	If e_c1=aleatoire1 Then
+		b_p1=1
+		p1.Color=Colors.Black
+	Else If e_c1=aleatoire2 Or e_c1=aleatoire3 Or e_c1=aleatoire4 Then
+		b_p1=0
+		p1.Color=Colors.White
 	Else
-		Bonne_place1=0
-		pion1.Color=Colors.Transparent
+		b_p1=0
+		p1.Color=Colors.Transparent
 	End If
 	
-	If envoie_couleur2=aleatoire2 Then
-		Bonne_place2=1
-		pion2.Color=Colors.Black
-	Else If envoie_couleur2=aleatoire1 Or envoie_couleur2=aleatoire3 Or envoie_couleur2=aleatoire4 Then
-		Bonne_place2=0
-		pion2.Color=Colors.White
+	If e_c2=aleatoire2 Then
+		b_p2=1
+		p2.Color=Colors.Black
+	Else If e_c2=aleatoire1 Or e_c2=aleatoire3 Or e_c2=aleatoire4 Then
+		b_p2=0
+		p2.Color=Colors.White
 	Else
-		Bonne_place2=0
-		pion2.Color=Colors.Transparent
+		b_p2=0
+		p2.Color=Colors.Transparent
 	End If
 	
-	If envoie_couleur3=aleatoire3 Then
-		Bonne_place3=1
-		pion3.Color=Colors.Black
-	Else If envoie_couleur3=aleatoire1 Or envoie_couleur3=aleatoire2 Or envoie_couleur3=aleatoire4 Then
-		Bonne_place3=0
-		pion3.Color=Colors.White
+	If e_c3=aleatoire3 Then
+		b_p3=1
+		p3.Color=Colors.Black
+	Else If e_c3=aleatoire1 Or e_c3=aleatoire2 Or e_c3=aleatoire4 Then
+		b_p3=0
+		p3.Color=Colors.White
 	Else
-		Bonne_place3=0
-		pion3.Color=Colors.Transparent
+		b_p3=0
+		p3.Color=Colors.Transparent
 	End If
 	
-	If envoie_couleur4=aleatoire4 Then
-		Bonne_place4=1
-		pion4.Color=Colors.Black
-	Else If envoie_couleur4=aleatoire1 Or envoie_couleur4=aleatoire2 Or envoie_couleur4=aleatoire3 Then
-		Bonne_place4=0
-		pion4.Color=Colors.White
+	If e_c4=aleatoire4 Then
+		b_p4=1
+		p4.Color=Colors.Black
+	Else If e_c4=aleatoire1 Or e_c4=aleatoire2 Or e_c4=aleatoire3 Then
+		b_p4=0
+		p4.Color=Colors.White
 	Else
-		Bonne_place4=0
-		pion4.Color=Colors.Transparent
+		b_p4=0
+		p4.Color=Colors.Transparent
 	End If
 	
-	If Bonne_place1=1 And Bonne_place2=1 And Bonne_place3=1 And Bonne_place4=1 Then
+	If b_p1=1 And b_p2=1 And b_p3=1 And b_p4=1 Then
 		Resultat.Color=Colors.Black
 		Resultat.TextColor=Colors.White
 		Resultat.Text="Bravo tu as gagné ! "
@@ -299,70 +299,70 @@ End Sub
 
 Sub Debug_Click
 	If aleatoire1=1 Then
-		couleur_aleatoire1.Color=Colors.Red
-		couleur_aleatoire1.Text=aleatoire1
+		c_a1.Color=Colors.Red
+		c_a1.Text=aleatoire1
 	End If
 	If aleatoire1=2 Then
-		couleur_aleatoire1.Color=Colors.Blue
-		couleur_aleatoire1.Text=aleatoire1
+		c_a1.Color=Colors.Blue
+		c_a1.Text=aleatoire1
 	End If
 	If aleatoire1=3 Then
-		couleur_aleatoire1.Color=Colors.Yellow
-		couleur_aleatoire1.Text=aleatoire1
+		c_a1.Color=Colors.Yellow
+		c_a1.Text=aleatoire1
 	End If
 	If aleatoire1=4 Then
-		couleur_aleatoire1.Color=Colors.Green
-		couleur_aleatoire1.Text=aleatoire1
+		c_a1.Color=Colors.Green
+		c_a1.Text=aleatoire1
 	End If
 	
 	If aleatoire2=1 Then
-		couleur_aleatoire2.Color=Colors.Red
-		couleur_aleatoire2.Text=aleatoire2
+		c_a2.Color=Colors.Red
+		c_a2.Text=aleatoire2
 	End If
 	If aleatoire2=2 Then
-		couleur_aleatoire2.Color=Colors.Blue
-		couleur_aleatoire2.Text=aleatoire2
+		c_a2.Color=Colors.Blue
+		c_a2.Text=aleatoire2
 	End If
 	If aleatoire2=3 Then
-		couleur_aleatoire2.Color=Colors.Yellow
-		couleur_aleatoire2.Text=aleatoire2
+		c_a2.Color=Colors.Yellow
+		c_a2.Text=aleatoire2
 	End If
 	If aleatoire2=4 Then
-		couleur_aleatoire2.Color=Colors.Green
-		couleur_aleatoire2.Text=aleatoire2
+		c_a2.Color=Colors.Green
+		c_a2.Text=aleatoire2
 	End If
 	
 	If aleatoire3=1 Then
-		couleur_aleatoire3.Color=Colors.Red
-		couleur_aleatoire3.Text=aleatoire3
+		c_a3.Color=Colors.Red
+		c_a3.Text=aleatoire3
 	End If
 	If aleatoire3=2 Then
-		couleur_aleatoire3.Color=Colors.Blue
-		couleur_aleatoire3.Text=aleatoire3
+		c_a3.Color=Colors.Blue
+		c_a3.Text=aleatoire3
 	End If
 	If aleatoire3=3 Then
-		couleur_aleatoire3.Color=Colors.Yellow
-		couleur_aleatoire3.Text=aleatoire3
+		c_a3.Color=Colors.Yellow
+		c_a3.Text=aleatoire3
 	End If
 	If aleatoire3=4 Then
-		couleur_aleatoire3.Color=Colors.Green
-		couleur_aleatoire3.Text=aleatoire3
+		c_a3.Color=Colors.Green
+		c_a3.Text=aleatoire3
 	End If
 	
 	If aleatoire4=1 Then
-		couleur_aleatoire4.Color=Colors.Red
-		couleur_aleatoire4.Text=aleatoire4
+		c_a4.Color=Colors.Red
+		c_a4.Text=aleatoire4
 	End If
 	If aleatoire4=2 Then
-		couleur_aleatoire4.Color=Colors.Blue
-		couleur_aleatoire4.Text=aleatoire4
+		c_a4.Color=Colors.Blue
+		c_a4.Text=aleatoire4
 	End If
 	If aleatoire4=3 Then
-		couleur_aleatoire4.Color=Colors.Yellow
-		couleur_aleatoire4.Text=aleatoire4
+		c_a4.Color=Colors.Yellow
+		c_a4.Text=aleatoire4
 	End If
 	If aleatoire4=4 Then
-		couleur_aleatoire4.Color=Colors.Green
-		couleur_aleatoire4.Text=aleatoire4
+		c_a4.Color=Colors.Green
+		c_a4.Text=aleatoire4
 	End If
 End Sub

@@ -14,7 +14,7 @@ ManifestCode='This code will be applied to the manifest file during compilation.
 NumberOfFiles=4
 NumberOfLibraries=1
 NumberOfModules=0
-Version=10.2
+Version=12.5
 @EndOfDesignText@
 #Region  Project Attributes 
 	#ApplicationLabel: mastermind std2a
@@ -163,13 +163,13 @@ Sub Commencer_Click
 	aleatoire2=Rnd(1,7)
 	aleatoire3=Rnd(1,7)
 	aleatoire4=Rnd(1,7)
-	Do While aleatoire2=aleatoire1 Or aleatoire2=aleatoire3 Or aleatoire2=aleatoire4 Then
+	Do While aleatoire2=aleatoire1 Or aleatoire2=aleatoire3 Or aleatoire2=aleatoire4
 		aleatoire2=Rnd(1,7)
 	Loop
-	Do While aleatoire3=aleatoire1 Or aleatoire3=aleatoire2 Or aleatoire3=aleatoire4 Then
+	Do While aleatoire3=aleatoire1 Or aleatoire3=aleatoire2 Or aleatoire3=aleatoire4
 		aleatoire3=Rnd(1,7)
 	Loop
-	Do While aleatoire4=aleatoire1 Or aleatoire4=aleatoire2 Or aleatoire4=aleatoire3 Then
+	Do While aleatoire4=aleatoire1 Or aleatoire4=aleatoire2 Or aleatoire4=aleatoire3
 		aleatoire4=Rnd(1,7)
 	Loop
 	Resultat.Text="Choisir les couleurs : Rouge, Bleu, Verte et Jaune"

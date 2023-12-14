@@ -1,16 +1,20 @@
-﻿Version=5.02
-NumberOfModules=0
-Build1=Default,b4a.mastermind_std2a
+﻿Build1=Default,b4a.mastermind_std2a
 Build2=mastermind2,b4a.mastermind2
-ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="14"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~SetApplicationAttribute(android:theme, "@android:style/Theme.Holo")~\n~'End of default text.~\n~
-IconFile=
-NumberOfFiles=4
 File1=debug_5_02.bal
 File2=Jeu_5_02.bal
 File3=menu_5_02.bal
 File4=Regles_5_02.bal
-NumberOfLibraries=1
+FileGroup1=Default Group
+FileGroup2=Default Group
+FileGroup3=Default Group
+FileGroup4=Default Group
+Group=Default Group
 Library1=core
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="14"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~SetApplicationAttribute(android:theme, "@android:style/Theme.Holo")~\n~'End of default text.~\n~
+NumberOfFiles=4
+NumberOfLibraries=1
+NumberOfModules=0
+Version=12.5
 @EndOfDesignText@
 #Region  Project Attributes 
 	#ApplicationLabel: mastermind std2a
@@ -169,13 +173,13 @@ Sub Commencer_Click
 	aleatoire2=Rnd(1,7)
 	aleatoire3=Rnd(1,7)
 	aleatoire4=Rnd(1,7)
-	Do While aleatoire2=aleatoire1 Or aleatoire2=aleatoire3 Or aleatoire2=aleatoire4 Then
+	Do While aleatoire2=aleatoire1 Or aleatoire2=aleatoire3 Or aleatoire2=aleatoire4 'Then
 		aleatoire2=Rnd(1,7)
 	Loop
-	Do While aleatoire3=aleatoire1 Or aleatoire3=aleatoire2 Or aleatoire3=aleatoire4 Then
+	Do While aleatoire3=aleatoire1 Or aleatoire3=aleatoire2 Or aleatoire3=aleatoire4 'Then
 		aleatoire3=Rnd(1,7)
 	Loop
-	Do While aleatoire4=aleatoire1 Or aleatoire4=aleatoire2 Or aleatoire4=aleatoire3 Then
+	Do While aleatoire4=aleatoire1 Or aleatoire4=aleatoire2 Or aleatoire4=aleatoire3 'Then
 		aleatoire4=Rnd(1,7)
 	Loop
 	Resultat.Text="Choisir les couleurs : Rouge, Bleu, Verte et Jaune"
